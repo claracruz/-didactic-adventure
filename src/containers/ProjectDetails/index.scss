@@ -1,0 +1,40 @@
+#root {
+  .main {
+
+    position: relative;
+
+    .loading {
+      position: absolute;
+    }
+
+    .details {
+      margin-bottom: 30px;
+
+      h2 {
+        margin-bottom: 5px;
+      }
+
+      .meta-data {
+        padding: 0 0 0 15px;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        li {
+          list-style-type: square;
+          padding-left: 7px;
+        }
+      }
+    }
+
+    .contributor-list {
+      h3 {
+        border-bottom: 1px solid #d2d2d2;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+      }
+    }
+
+  }
+}

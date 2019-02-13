@@ -1,0 +1,42 @@
+#root {
+  .main {
+
+    .contributors {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding: 0;
+
+      .thumbnail {
+        border: 1px solid #d2d2d2;
+        width: 105px;
+        height: auto;
+        padding: 0;
+        margin: 0 -1px 15px 0;
+        text-align: center;
+
+        img {
+          width: 90px;
+          height: 90px;
+          margin: 4px 0 0;
+        }
+
+        span {
+          display: block;
+          border-top: 1px solid #d2d2d2;
+          padding: 4px;
+
+          a {
+            font-size: 0.75rem;
+            color: #1776d6;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+}

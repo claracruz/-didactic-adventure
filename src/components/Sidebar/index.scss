@@ -1,0 +1,39 @@
+#root {
+  .nav {
+
+    overflow: hidden;
+    background-color: white;
+    padding: 0;
+    max-width: 350px;
+    min-width: 175px;
+    width: 100%;
+
+    li {
+
+      margin: 1px 0;
+
+      a {
+        display: block;
+        padding: 10px;
+        font-size: 0.875rem;
+        color: #1776d6;
+        text-decoration: none;
+
+        &.selected,
+        &:hover {
+          background-color: #3c4146;
+          font-weight: bold;
+          color: white;
+        }
+
+        span {
+          min-width: 75px;
+          white-space: normal;
+          display: inline-block;
+          word-break: break-word;
+        }
+      }
+    }
+
+  }
+}
