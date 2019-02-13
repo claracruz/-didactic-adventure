@@ -57,7 +57,7 @@ describe('On request project list', () => {
 			expect(result).toEqual(call(services.fetchRepoProjects));
 		});
 
-		it('raises failure action', () => {
+		it('raises error action', () => {
 			const result = generator.throw('error').value;
 			expect(result).toEqual(put({
 				type: REPO_PROJECTS_REQUEST_FAILED,

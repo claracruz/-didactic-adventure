@@ -67,8 +67,7 @@ describe('On request project details', () => {
 		});
 
 		it('raises error action', () => {
-			const testData = { contributors: undefined, details: undefined };
-			const result = generator.next(testData).value;
+			const result = generator.throw('error').value;
 			expect(result).toEqual(put({
 				type: PROJECT_DETAILS_REQUEST_FAILED,
 				error: 'A server error occurred! Unable to retrieve project details'
