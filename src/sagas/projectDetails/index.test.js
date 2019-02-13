@@ -66,7 +66,7 @@ describe('On request project details', () => {
 			}));
 		});
 
-		it('raises success action', () => {
+		it('raises error action', () => {
 			const testData = { contributors: undefined, details: undefined };
 			const result = generator.next(testData).value;
 			expect(result).toEqual(put({

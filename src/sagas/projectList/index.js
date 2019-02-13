@@ -7,10 +7,10 @@ import {
 import { fetchRepoProjects } from '../../utils/requests';
 
 
-function* requestRepoProjects() {
+export function* requestRepoProjects() {
 	try {
 		const response = yield call(fetchRepoProjects);
-		yield put({ type: RECEIVE_REPO_PROJECTS, data:response.data });
+		yield put({ type: RECEIVE_REPO_PROJECTS, data: response.data });
 	} catch (e) {
 		yield put({
 			type: REPO_PROJECTS_REQUEST_FAILED,
