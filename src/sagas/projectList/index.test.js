@@ -17,9 +17,6 @@ describe('On request project list', () => {
 	const testAction = {
 		type: REQUEST_REPO_PROJECTS
 	};
-	const testSuccessResponse = {
-		data: undefined
-	};
 
 	it('gets the execution context', () => {
 		const generator = cloneableGenerator(onRequestRepoProjects)(testAction);
@@ -36,6 +33,9 @@ describe('On request project list', () => {
 		});
 
 		it('raises success action', () => {
+			const testSuccessResponse = {
+				data: undefined
+			};
 			const result = generator.next(testSuccessResponse).value;
 			expect(result).toEqual(put({
 				type: RECEIVE_REPO_PROJECTS,

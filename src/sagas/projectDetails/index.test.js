@@ -19,10 +19,6 @@ describe('On request project details', () => {
 		url: 'a/url',
 		contributorsUrl: '/a/contributors_url'
 	};
-	const testSuccessResponse = {
-		contributors: [1,2,3],
-		details: {foo: 'bar'}
-	};
 
 	it('gets the execution context', () => {
 		const generator = cloneableGenerator(onRequestProjectDetails)(testAction);
@@ -42,6 +38,10 @@ describe('On request project details', () => {
 		});
 
 		it('raises success action', () => {
+			const testSuccessResponse = {
+				contributors: [1,2,3],
+				details: {foo: 'bar'}
+			};
 			const result = generator.next(testSuccessResponse).value;
 			expect(result).toEqual(put({
 				type: RECEIVE_PROJECT_DETAILS,
