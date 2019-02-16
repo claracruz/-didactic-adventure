@@ -3,7 +3,7 @@ import {
 	REQUEST_REPO_PROJECTS,
 	RECEIVE_REPO_PROJECTS,
 	REPO_PROJECTS_REQUEST_FAILED
-} from '../../constants/index';
+} from '../../constants';
 import { fetchRepoProjects } from '../../utils/requests';
 
 
