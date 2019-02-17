@@ -3,7 +3,6 @@ import {
 	requestRepoProjects
 }   from './';
 import { put, call, takeLatest } from 'redux-saga/effects';
-import { cloneableGenerator } from '@redux-saga/testing-utils';
 import {
 	REQUEST_REPO_PROJECTS,
 	RECEIVE_REPO_PROJECTS,
@@ -19,13 +18,13 @@ describe('On request project list', () => {
 	};
 
 	it('gets the execution context', () => {
-		const generator = cloneableGenerator(onRequestRepoProjects)(testAction);
+		const generator = onRequestRepoProjects(testAction);
 		const result = generator.next().value;
 		expect(result).toEqual(takeLatest(testAction.type, requestRepoProjects));
 	});
 
 	describe('Fetch data successfully', () => {
-		const generator = cloneableGenerator(requestRepoProjects)(testAction);
+		const generator = requestRepoProjects(testAction);
 
 		it('calls the API', () => {
 			const result = generator.next(testAction).value;
@@ -50,7 +49,7 @@ describe('On request project list', () => {
 	});
 
 	describe('Throws error on failure', () => {
-		const generator = cloneableGenerator(requestRepoProjects)(testAction);
+		const generator = requestRepoProjects(testAction);
 
 		it('calls the API', () => {
 			const result = generator.next(testAction).value;

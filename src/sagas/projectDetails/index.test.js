@@ -3,7 +3,6 @@ import {
 	fetchProjectData
 }   from './';
 import { put, call, takeLatest, all } from 'redux-saga/effects';
-import { cloneableGenerator } from '@redux-saga/testing-utils';
 import {
 	REQUEST_PROJECT_DETAILS,
 	RECEIVE_PROJECT_DETAILS,
@@ -21,13 +20,13 @@ describe('On request project details', () => {
 	};
 
 	it('gets the execution context', () => {
-		const generator = cloneableGenerator(onRequestProjectDetails)(testAction);
+		const generator = onRequestProjectDetails(testAction);
 		const result = generator.next().value;
 		expect(result).toEqual(takeLatest(testAction.type, fetchProjectData));
 	});
 
 	describe('Fetch data successfully', () => {
-		const generator = cloneableGenerator(fetchProjectData)(testAction);
+		const generator = fetchProjectData(testAction);
 
 		it('calls the API', () => {
 			const result = generator.next(testAction).value;
@@ -57,7 +56,7 @@ describe('On request project details', () => {
 	});
 
 	describe('Throws error on failure', () => {
-		const generator = cloneableGenerator(fetchProjectData)(testAction);
+		const generator = fetchProjectData(testAction);
 
 		it('calls the API', () => {
 			const result = generator.next(testAction).value;
