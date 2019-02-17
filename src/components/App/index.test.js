@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { App } from '../../containers/App';
-import { Loading } from '../../components/Loading';
-import { ProjectDetails } from '../../containers/ProjectDetails';
-import { Sidebar } from '../../components/Sidebar';
+import { App } from './';
+import { Loading } from '../Loading';
+import { ProjectDetails } from '../../components/ProjectDetails';
+import { Sidebar } from '../Sidebar';
 import { Route } from 'react-router-dom';
 
 describe('<App />', () => {

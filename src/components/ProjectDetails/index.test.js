@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import { Loading } from '../../components/Loading';
-import { ProjectDetails } from '../../containers/ProjectDetails';
-import * as utils from '../../utils';
-import {Thumbnail} from "../../components/Thumbnail";
+import { Thumbnail } from '../Thumbnail';
+import { Loading } from '../Loading';
+import { ProjectDetails } from './';
+import * as utils from '../../utils/index';
 
 describe('<ProjectDetails />', () => {
 	let props;
