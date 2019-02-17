@@ -9,7 +9,7 @@ import {
 	RECEIVE_REPO_PROJECTS,
 	REPO_PROJECTS_REQUEST_FAILED
 } from '../../constants/index';
-import * as services from "../../utils/requests";
+import * as services from '../../utils/requests';
 
 
 describe('On request project list', () => {
@@ -21,7 +21,7 @@ describe('On request project list', () => {
 	it('gets the execution context', () => {
 		const generator = cloneableGenerator(onRequestRepoProjects)(testAction);
 		const result = generator.next().value;
-		expect(result).toEqual(takeLatest(REQUEST_REPO_PROJECTS, requestRepoProjects));
+		expect(result).toEqual(takeLatest(testAction.type, requestRepoProjects));
 	});
 
 	describe('Fetch data successfully', () => {
@@ -34,12 +34,12 @@ describe('On request project list', () => {
 
 		it('raises success action', () => {
 			const testSuccessResponse = {
-				data: undefined
+				data: { success: true }
 			};
 			const result = generator.next(testSuccessResponse).value;
 			expect(result).toEqual(put({
 				type: RECEIVE_REPO_PROJECTS,
-				data: undefined
+				...testSuccessResponse
 			}));
 		});
 

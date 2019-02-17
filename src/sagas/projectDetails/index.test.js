@@ -8,8 +8,8 @@ import {
 	REQUEST_PROJECT_DETAILS,
 	RECEIVE_PROJECT_DETAILS,
 	PROJECT_DETAILS_REQUEST_FAILED
-} from '../../constants/index';
-import * as services from "../../utils/requests";
+} from '../../constants';
+import * as services from '../../utils/requests';
 
 
 describe('On request project details', () => {
@@ -23,7 +23,7 @@ describe('On request project details', () => {
 	it('gets the execution context', () => {
 		const generator = cloneableGenerator(onRequestProjectDetails)(testAction);
 		const result = generator.next().value;
-		expect(result).toEqual(takeLatest(REQUEST_PROJECT_DETAILS, fetchProjectData));
+		expect(result).toEqual(takeLatest(testAction.type, fetchProjectData));
 	});
 
 	describe('Fetch data successfully', () => {
@@ -39,13 +39,14 @@ describe('On request project details', () => {
 
 		it('raises success action', () => {
 			const testSuccessResponse = {
-				contributors: [1,2,3],
-				details: {foo: 'bar'}
+				contributors: { data: [1,2,3] },
+				details: { data: { foo: 'bar' }}
 			};
 			const result = generator.next(testSuccessResponse).value;
+			const { contributors, details } = testSuccessResponse;
 			expect(result).toEqual(put({
 				type: RECEIVE_PROJECT_DETAILS,
-				data: { contributors: undefined, details: undefined }
+				data: { contributors: contributors.data, details: details.data }
 			}));
 		});
 
