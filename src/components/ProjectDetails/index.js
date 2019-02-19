@@ -2,20 +2,18 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Thumbnail } from '../Thumbnail';
 import { Loading } from '../Loading';
-import {
-	getItemFromArrayById
-} from '../../utils';
+import { getItemFromArrayById } from '../../utils';
 import './index.scss';
 
 export class ProjectDetails extends PureComponent {
 
 	fetchProjectDetails() {
-		const { match } = this.props;
+		const { getProjectDetails, match } = this.props;
 		const { projectId } = match.params;
 		const project = getItemFromArrayById(this.props.projects, parseInt(projectId));
 
 		if (project) {
-			this.props.getProjectDetails({
+			getProjectDetails({
 				url: project.url,
 				contributorsUrl: project.contributors_url
 			});
