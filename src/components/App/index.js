@@ -15,7 +15,6 @@ export class App extends PureComponent {
 
 	render() {
 		const { error, fetching, projects } = this.props;
-		debugger
 		return (
 			<>
 				<header className="app-header">
