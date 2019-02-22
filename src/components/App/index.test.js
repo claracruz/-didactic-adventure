@@ -11,7 +11,7 @@ describe('<App />', () => {
 
 	beforeEach(() => {
 		props = {
-			error: false,
+			error: null,
 			fetching: false,
 			projects: [],
 			getProjectList: jest.fn()

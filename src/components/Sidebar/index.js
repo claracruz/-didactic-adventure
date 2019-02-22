@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './index.scss';
 
-export const Sidebar = ({ list, items }) => {
+export const Sidebar = ({ items }) => {
 
 	if (!items.length) {
 		return <div className="empty-message">No projects found</div>;
